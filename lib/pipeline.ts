@@ -20,7 +20,7 @@ export default class PipelineConstruct extends Construct {
       .name("eks-blueprints-workshop-pipeline")
       .owner("hmalayap")
       .repository({
-          repoUrl: ' my-eks-blueprints',
+          repoUrl: 'my-eks-blueprints',
           credentialsSecretName: 'github-token',
           targetRevision: 'main'
       })
@@ -29,7 +29,6 @@ export default class PipelineConstruct extends Construct {
         id: "envs",
         stages: [
           { id: "dev", stackBuilder: blueprint.clone('us-west-2')},
-          { id: "test", stackBuilder: blueprint.clone('us-east-2')},
           { id: "prod", stackBuilder: blueprint.clone('us-east-1')}
         ]
       })
